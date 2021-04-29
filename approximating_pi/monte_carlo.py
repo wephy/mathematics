@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib.ticker import StrMethodFormatter, NullFormatter
 
-# parameters
+# Parameters
 POINTS = 100_000
 FRAMES = 250
 
-# solarized colours
+# Solarized colours
 sol_Base03 = "#002b36"
 sol_Red = "#dc322f"
 sol_Blue = "#268bd2"
@@ -42,7 +42,7 @@ ax2.axhline(np.pi, ls="--", lw=1, color=sol_Red)
 pi_text = ax2.annotate(
     "",
     (0.02, 0.95),
-    xycoords='axes fraction',
+    xycoords="axes fraction",
     fontsize=20,
     fontfamily="cmr10",
     color=sol_Base03,
