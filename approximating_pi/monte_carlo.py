@@ -13,21 +13,15 @@ sol_Red = "#dc322f"
 sol_Blue = "#268bd2"
 
 # Create Figure with two axes
+plt.style.use("Solarize_Light2")
 fig, axes = plt.subplots(1, 2, figsize=(14, 8))
 ax1, ax2 = axes[0], axes[1]
 ax1.set_box_aspect(1)
 ax2.set_box_aspect(1)
-plt.style.use("Solarize_Light2")
 
 # Create title and pi approximation text
 suptitle_text = f"$\\textnormal{{Monte Carlo approximation for }} \\pi$"
-st = fig.suptitle(
-    suptitle_text,
-    y=0.95,
-    fontsize=25,
-    color=sol_Base03,
-    usetex=True
-)
+st = fig.suptitle(suptitle_text, y=0.95, fontsize=25, color=sol_Base03, usetex=True)
 pi_text = ax1.annotate(
     "",
     (0.47, 0.86),
@@ -43,6 +37,7 @@ pi_text = ax1.annotate(
 # Create scatter plot
 sim = ax1.scatter([], [], marker="o", s=1, animated=True)
 ax1.axis([-1.05, 1.05, -1.05, 1.05])
+ax1.set_yticks(np.arange(-1.0, 1.5, 0.5))
 
 # Create circle on ax1
 ax1.add_patch(plt.Circle((0, 0), 1, lw=2, color=sol_Base03, fill=False))
@@ -52,7 +47,7 @@ ax2.set_xscale("log")
 ax2.xaxis.set_major_formatter(StrMethodFormatter("{x:.0f}"))
 ax2.xaxis.set_minor_formatter(NullFormatter())
 ax2.axis([1, 2, np.pi - 1, np.pi + 1])
-ax2.set_yticks(np.concatenate([np.arange(2, 5, 0.5), [np.pi]]))
+ax2.set_yticks(np.concatenate([np.arange(2, 5, 0.25), [np.pi]]))
 
 # Create line plot
 (line,) = ax2.plot([], [], color=sol_Base03, animated=True)
