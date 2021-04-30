@@ -6,11 +6,14 @@ from PIL import Image
 ITERATIONS = 600
 POINTS = 10_000
 DRAW = 300
-IMAGE_SIZE = (2000, 1000)
+IMAGE_SIZE = (1750, 1000)
 IMAGE_FNAME = "bifurcation_diagram.png"
 
+# Solarized colours
+sol_Base03 = "#002b36"
+
 # Create Figure with one axes
-fig, ax = plt.subplots(1, 1, figsize=(16, 8))
+fig, ax = plt.subplots(1, 1, figsize=(14, 8))
 plt.style.use("Solarize_Light2")
 
 # Set ticks and limits
@@ -25,7 +28,7 @@ title1 = f"$\\textnormal{{Logistic map}}$" + "\n"
 title2 = f"$x_{{n+1}}=\\lambda\\,x_{{n}}\\,(1-x_{{n}})$"
 ylabel = f"$\\chi$"
 xlabel = f"$\\lambda$"
-ax.set_title(title1 + title2, fontsize=25, pad=35)
+ax.set_title(title1 + title2, fontsize=25, pad=35, color=sol_Base03)
 ax.set_ylabel(ylabel, fontsize=20, rotation=0, labelpad=15)
 ax.set_xlabel(xlabel, fontsize=20, rotation=0, labelpad=15)
 
@@ -40,8 +43,7 @@ r = np.linspace(2, 4, POINTS)
 for i in range(ITERATIONS):
     x = logistic_map(r, x)
     if i > ITERATIONS - DRAW:
-        ax.plot(r, x, ",k", alpha=0.3)
-
+        ax.plot(r, x, ",", color="k", alpha=0.3)
 
 # Save fig
 fig.tight_layout(pad=3)
