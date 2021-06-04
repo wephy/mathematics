@@ -1,5 +1,6 @@
-# # mathematics
-A collection of mathematics projects
+# Mathematics [mathematics]
+
+**A collection of mathematical problems. I plan on having this be a huge hub of anything and everything mathematical one can manifest in code.**
 
 
 ## Approximating pi
